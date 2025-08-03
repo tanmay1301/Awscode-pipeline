@@ -1,0 +1,23 @@
+phases: 
+  install:
+    runtime-version:
+      nodejs: 21
+    commands:
+     - echo "installing Dependencies"
+     - npm install
+  build: 
+    commands:
+      - echo "building application"
+      - npm run build
+
+  post_build:
+    commands:
+      -echo "build completed on date"
+      - mkdir -p deploy
+      - cp -r dist/ deploy/
+     # - cp appspec.yaml deploy/
+      #- cp -r scripts/ deploy/scripts/
+artifacts:
+  files:
+    - deploy/**/*
+  discard-paths: no
