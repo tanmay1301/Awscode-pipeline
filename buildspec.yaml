@@ -9,10 +9,9 @@ phases:
     commands:
       - echo "building application"
       - npm run build
-
   post_build:
     commands:
-      -echo "build completed on date"
+      - echo "build completed on date"
       - mkdir -p deploy
       - cp -r dist/ deploy/
      # - cp appspec.yaml deploy/
